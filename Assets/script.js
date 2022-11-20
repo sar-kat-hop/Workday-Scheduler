@@ -1,38 +1,36 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that the code isn't run until the browser has finished rendering all the elements in the html.
 
-// console.log(dayjs().hour());
+console.log(dayjs().hour()); //logging current hour for testing purposes
+
+//declaring variables globally
+var inputEl = $(".input");
+var userInput = inputEl.val(); //or would .text() be better?
+var timeBlockDiv = $("div[id^=hour-]"); //using wildcard to select all divs starting with hour-
+var saveBtnEl = $(".saveBtn");
 
 $(document).ready(function(){
   var dateToday = dayjs().format("LLLL");
   $("#currentDay").append("<p>Today is</p", dateToday);
     console.log(dateToday);
-
-    var inputEl = $(".input");
-    var saveBtnEl = $(".saveBtn");
-
-    function saveInput() {
-      saveBtnEl.on("click", function() {
-        //localStorage -- save user input locally
-        // localStorage.setItem((inputEl).text());
-      })
-    }
-
+    
+    displayLastSaved(); //calling fxn defined below to display user's locally stored input, if available
   }
 );
-
+      
+      saveBtnEl.addEventListener("click", function(event) {
+        event.preventDefault();
+      }
 // $(function() {
   //append hours to hourText instead of including in the html???
 //   var hourText = $(".hourText");
 //   var 
 // })
 
-$(function() {
-  var currentHour = dayjs().hour() //.toString();
-  console.log(currentHour);
+// $(function() {
+//   var currentHour = dayjs().hour() //.toString();
+  // console.log(currentHour);
   // var scheduleHour = $(".hourText").toNum();
   // var scheduleHour = $(".hourText").text();
-  
-  
   // var parsedHour = parseInt(scheduleHour);
   // console.log(parsedHour); //logging NaN... can't be converted to number?
 
@@ -51,17 +49,12 @@ $(function() {
   //   $(".hourText").append(" p.m.");
   // };
 
-
-
-
-
-
   //attempts to grab ids beginning with "hour-" that I couldn't get to work:
       // $("[id^=hour-").css("color", "blue");
       // $("[id=hour-9").css("color", "blue");
       // $("id[name^='hour']").css("color", "skyblue");
       // $(".row time-block").css("font-size", "30 px");
-});
+// });
 
 // $(".hourText").append()
 
@@ -78,14 +71,9 @@ $(function() {
       // declare var for user text input
   // var textInput = $("textarea");
   
-  // function saveInput() {
-
 // )};
 
-
   // HINT: What does `this` reference in the click listener function? How can DOM traversal be used to get the "hour-x" id of the time-block containing the button that was clicked? How might the id be useful when saving the description in local storage?
-
-
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
