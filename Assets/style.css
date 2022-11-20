@@ -30,6 +30,10 @@ textarea {
   border-top: 1px dashed #000000;
 }
 
+.hourHidden {
+  visibility: hidden;
+}
+
 .past {
   background-color: #979797c9;
   color: white;
