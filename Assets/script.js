@@ -1,4 +1,5 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that the code isn't run until the browser has finished rendering all the elements in the html.
+
 // console.log(dayjs().hour());
 
 $(document).ready(function(){
@@ -6,27 +7,51 @@ $(document).ready(function(){
   $("#currentDay").append("<p>Today is</p", dateToday);
     console.log(dateToday);
 
-  // function clickSave() {
+    var inputEl = $(".input");
+    var saveBtnEl = $(".saveBtn");
 
-  // };
+    function saveInput() {
+      saveBtnEl.on("click", function() {
+        //localStorage -- save user input locally
+        // localStorage.setItem((inputEl).text());
+      })
+    }
 
-  // function saveInput() {
+  }
+);
 
-  // };  
-
-});
+// $(function() {
+  //append hours to hourText instead of including in the html???
+//   var hourText = $(".hourText");
+//   var 
+// })
 
 $(function() {
-  var currentHour = dayjs().hour().toString();
-  var scheduleHour = $(".hourText");
+  var currentHour = dayjs().hour() //.toString();
+  console.log(currentHour);
+  // var scheduleHour = $(".hourText").toNum();
+  // var scheduleHour = $(".hourText").text();
+  
+  
+  // var parsedHour = parseInt(scheduleHour);
+  // console.log(parsedHour); //logging NaN... can't be converted to number?
 
-  //need to make it possible to compare equality of currentHour and scheduleHour. Extract numbers from scheduleHour (remove am/pm) or convert currentHour format?
+  //need to make it possible to compare equality of currentHour and scheduleHour. Extract numbers from scheduleHour (remove am/pm) or convert currentHour format? Or, just append am/pm separately?
   // var hourValue = scheduleHour.match(/(\d+)/);
 
-  console.log(currentHour);
-  console.log(hourValue); //not logging anything
+  // console.log(hourValue); //not logging anything
   // console.log(scheduleHour[0]);
-  $(scheduleHour).css("color", "blue");
+  // $(scheduleHour).css("color", "blue");
+
+  //append a.m. or p.m. to hour on schedule. Currently not working (appending a.m. to all)
+
+  // if (scheduleHour < 12) {
+  //   $(".hourText").append(" a.m.");
+  // } else {
+  //   $(".hourText").append(" p.m.");
+  // };
+
+
 
 
 
@@ -38,6 +63,7 @@ $(function() {
       // $(".row time-block").css("font-size", "30 px");
 });
 
+// $(".hourText").append()
 
   // TODO: Add a listener for click events on the save button. This code should use the id in the containing time-block as a key to save the user input in local storage.
   
