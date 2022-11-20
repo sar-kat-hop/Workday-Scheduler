@@ -26,11 +26,53 @@ $(function () {
   // .append(content [, content ])
   // append( function )
 
-  $("#currentDay").append("<p>Today's date is: </p>", today);
-  console.log("print var 'today,' fxn dayjs() " + today);
+  $("#currentDay").append("<p>Today is </p>", dateToday);
+      console.log(dateToday);
+      // console.log("The time is " + currentTime);
   
 });
 
-var today = dayjs().format("MMMM " + "D, " + "YYYY");
+//dayjs code
 
+//this isn't working, unclear why. 
+      // var localizedFormat = require('dayjs/plugin/localizedFormat')
+      // dayjs.extend(localizedFormat);
+      // var weekday = require('dayjs/plugin/weekday');
+      // dayjs.extend(weekday);
+
+// dayjs().format("LLLL");
+
+var dateToday = dayjs().format("LLLL");
+//user's current time, default is in 24-hr format, GMT. 
+// var currentTime = dayjs().hour();
+// var weekdayNum = dayjs().day();
+// var dayOfWeek = dayjs().toString();
+
+//LocalizedFormat plugin needed for this code to work...
+
+// function dayName () {
+//   if (weekdayNum == 0) {
+//     console.log("Sunday");
+//   }
+//   else if (weekdayNum == 1) {
+//     console.log("Monday");
+//   }
+//   else if (weekdayNum == 2) {
+//     console.log("Tuesday");
+//   }
+//   else if (weekdayNum == 3) {
+//     console.log("Wednesday");
+//   }
+//   else if (weekdayNum == 4) {
+//     console.log("Thursday");
+//   }
+//   else if (weekdayNum == 5) {
+//     console.log("Friday");
+//   }
+//   else {
+//     console.log("Saturday");
+//   };
+// };
+
+// });
 // toggleClass to toggle past, present, future css style to time blocks appropriately 

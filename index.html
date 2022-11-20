@@ -78,6 +78,12 @@
         <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
         crossorigin="anonymous"></script>
+    <!-- dayjs plugin CDNs. Not working ATM.  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/plugin/localizedFormat.min.js" integrity="sha512-vjS0MkqX58pv35Mv03gzee3TSJ74Gg5lPkgel1V8czy+sTX/ZoFMs/FqnGzWpf3IV+Ry3/mJ0i9nANcjKk1fBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+          dayjs.extend(window.dayjs_plugin_localizedFormat)
+        </script>
+    
     <!-- Updated link to point to correct path of script.js -->
         <script src="./Assets/script.js"></script>
   </body>
