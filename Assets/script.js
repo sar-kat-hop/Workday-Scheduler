@@ -1,25 +1,50 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that the code isn't run until the browser has finished rendering all the elements in the html.
-
-console.log(dayjs().hour()); //logging current hour for testing purposes
+console.log(dayjs().hour()); //default is 24-hr format but can be converted to local format, which I think needs to happen for comparing equality to time-block hours (unless those get changed to 24-hr or get assigned hidden 24-hr values)
 
 //declaring variables globally
-var inputEl = $(".input");
+var inputEl = $("div[id^=hour-].input"); //trying to point to .input associated with specific time-block divs only, so this variable can be used for save button fxn.
+    console.log(inputEl);
 var userInput = inputEl.val(); //or would .text() be better?
-var timeBlockDiv = $("div[id^=hour-]"); //using wildcard to select all divs starting with hour-
+// var displayInput = localStorage.setItem(userInput);
+var savedInput = localStorage.getItem(inputEl, userInput);
+var timeBlockDiv = $("div[id^=hour-]"); 
+    console.log(timeBlockDiv); 
 var saveBtnEl = $(".saveBtn");
+    console.log(saveBtnEl);
+
 
 $(document).ready(function(){
   var dateToday = dayjs().format("LLLL");
   $("#currentDay").append("<p>Today is</p", dateToday);
     console.log(dateToday);
     
-    displayLastSaved(); //calling fxn defined below to display user's locally stored input, if available
-  }
+  (function displayLastSaved() {
+    // localStorage.getItem(input, userInput).text();
+    // localStorage.setItem(input, userInput).text();
+    $(inputEl).append(userInput);
+  }); 
+}
 );
-      
-      saveBtnEl.addEventListener("click", function(event) {
-        event.preventDefault();
-      }
+
+// $(function displayLastSaved() {
+  // var displayInput = localStorage.getItem(userInput);
+//   inputEl.append(displayInput).text();
+// })
+
+$(function() {
+  saveBtnEl.on("click", function(event) {
+    event.preventDefault();
+  });
+});
+
+// TODO: Add a listener for click events on the save button. This code should use the id in the containing time-block as a key to save the user input in local storage.
+$(function saveInput() {
+  saveBtnEl.on("click", function() {
+    localStorage.setItem(".input", userInput);
+    // localStorage.setItem(savedInput.value);
+  })
+})
+
+
 // $(function() {
   //append hours to hourText instead of including in the html???
 //   var hourText = $(".hourText");
@@ -37,9 +62,6 @@ $(document).ready(function(){
   //need to make it possible to compare equality of currentHour and scheduleHour. Extract numbers from scheduleHour (remove am/pm) or convert currentHour format? Or, just append am/pm separately?
   // var hourValue = scheduleHour.match(/(\d+)/);
 
-  // console.log(hourValue); //not logging anything
-  // console.log(scheduleHour[0]);
-  // $(scheduleHour).css("color", "blue");
 
   //append a.m. or p.m. to hour on schedule. Currently not working (appending a.m. to all)
 
@@ -49,16 +71,9 @@ $(document).ready(function(){
   //   $(".hourText").append(" p.m.");
   // };
 
-  //attempts to grab ids beginning with "hour-" that I couldn't get to work:
-      // $("[id^=hour-").css("color", "blue");
-      // $("[id=hour-9").css("color", "blue");
-      // $("id[name^='hour']").css("color", "skyblue");
-      // $(".row time-block").css("font-size", "30 px");
 // });
 
-// $(".hourText").append()
 
-  // TODO: Add a listener for click events on the save button. This code should use the id in the containing time-block as a key to save the user input in local storage.
   
 // pseudo-code
       
