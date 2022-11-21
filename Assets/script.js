@@ -1,28 +1,15 @@
 console.log("Current hour:", dayjs().hour()); 
 
-// var am9 = $("#input-1");
-// var am10 = $("#input-2");
-// var am11 = $("#input-3");
-// var pm12 = $("#input-4");
-// var pm1 = $("#input-5");
-// var pm2 = $("#input-6");
-// var pm3 = $("#input-7");
-// var pm4 = $("#input-8");
-// var pm5 = $("#input-9");
-// var event9 = $(am9).data();
-// var event10 = $(am10).data();
-// var event11 = $(am11).data();
-// var event12 = $(pm12).data();
-// var event13 = $(pm1).data();
-// var event14 = $(pm2).data();
-// var event15 = $(pm3).data();
-// var event16 = $(pm4).data();
-// var event17 = $(pm5).data();
-
-var timeBlockDiv = $("div[id^=hour-]"); 
+// var timeBlockDiv = $("div[id^=hour-]");
+// var timeBlockDiv = $( "div-[id^=hour-] > p" );
+var timeBlockDiv = $(".row time-block"); 
+var timeValue = $((timeBlockDiv).data("value")); 
+    console.log($((timeBlockDiv).data("value")));
 var saveBtnEl = $("button[class^=btn]");
 var inputEl = $("[id^=input-]"); 
 var userInput = $("[type='text']").data();
+
+//redefine savedInput so it's getting text entered into textarea & saved
 var savedInput = localStorage.getItem(userInput);
 var currentHour = dayjs().hour();
 
@@ -48,22 +35,26 @@ $(document).ready(function() {
   });
 
 $(function renderSaved() {
-  $(userInput).each(function(i) {
+  // $(userInput).each(function(i) {
+    //not sure if fxn needed to iterate over every textarea with saved input or if localStorage.setItem and getItem just need to be fleshed out?
+    localStorage.getItem("inputEl", savedInput);
     // for (variable of iterable) {
 
     // }
-  })
-});
+  });
+// });
 
 $(function highlight() {
-  $(timeBlockDiv).each(function(i) {
-    if (this.value < currentHour) {
+  $(timeBlockDiv).map(function(i) { 
+    var value = $(this).data("value");
+    if (value < currentHour) {
       $(this).toggleClass(".past");
-    } else if (this.value > currentHour) {
+    } else if (value > currentHour) {
       $(this).toggleClass(".future");
     } else {
       $(this).toggleClass("present");
     }
+    console.log(value); //not grabbing value as expected :(
   });
 });
 
@@ -75,6 +66,7 @@ $(function saveInput() {
       // localStorage.setItem(key, value);
       // let lastname = localStorage.getItem(key);
       localStorage.setItem(inputEl, savedInput);
+      console.log(savedInput);
 
     });
   });
