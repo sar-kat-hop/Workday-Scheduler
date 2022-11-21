@@ -30,18 +30,22 @@ textarea {
   border-top: 1px dashed #000000;
 }
 
+/* .hourHidden {
+  visibility: hidden;
+} */
+
 .past {
-  background-color: #d3d3d3;
+  background-color: #979797c9;
   color: white;
 }
 
 .present {
-  background-color: #ff6961;
-  color: white;
+  background-color: #15d7da91;
+  color: black;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #eaebea62;
   color: white;
 }
 
