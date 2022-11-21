@@ -13,10 +13,10 @@ N/A
 ## Screenshot
 This is what the deployed work-in-progress site currently looks like in its broken state:
 
-!(assets/WorkDayScheduler_WIP.png)
+![screenshot of webpage](./Assets/WorkDayScheduler_WIP.png)
 
 ## Deployed Site
-To see the deployed site, click (here)[https://sar-kat-hop.github.io/Workday-Scheduler/]. 
+To see the deployed site, click [here](https://sar-kat-hop.github.io/Workday-Scheduler/). 
 
 ## Contributions
 Many different resources from class activities to MDN, StackOverflow, Web3Schools, and jQuery documentation were used in the process of trying to figure this out. I'll be seeking additional support from student tutoring services soon to fix the outstanding issues, deploy, and resubmit the assignment.
