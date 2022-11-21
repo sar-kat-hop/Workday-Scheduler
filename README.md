@@ -13,7 +13,7 @@ N/A
 ## Screenshot
 This is what the deployed work-in-progress site currently looks like in its broken state:
 
-![Screenshot](./assets/WorkDayScheduler_WIP.png)
+!(assets/WorkDayScheduler_WIP.png)
 
 ## Deployed Site
 To see the deployed site, click (here)[https://sar-kat-hop.github.io/Workday-Scheduler/]. 
